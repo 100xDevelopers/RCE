@@ -2,7 +2,8 @@ import type { ErrorRequestHandler } from "express";
 import ApiError from "../utils/apiError";
 
 const errorHandler: ErrorRequestHandler = (err: ApiError, req, res, next) => {
-  const errorStatusCode = err.statusCode;
+    console.log(err)
+  const errorStatusCode = err.statusCode ?? 500;
    res.status(errorStatusCode).json({
     status: errorStatusCode,
     message: err.message,
